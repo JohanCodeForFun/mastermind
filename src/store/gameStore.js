@@ -2,11 +2,11 @@ import { reactive } from 'vue'
 
 export const useStore = () => {
   const state = reactive({
-    buttonColors: Array(4).fill(null) // Assuming 4 buttons per row
+    currentColor: null
   })
 
-  const setColor = (index, color) => {
-    state.buttonColors[index] = color
+  const setColor = ( color) => {
+    state.currentColor = color
   }
 
   return {
