@@ -2,49 +2,21 @@
 import { ref } from 'vue'
 
 import TheCounter from './components/TheCounter.vue'
-import BlogArticle from './components/BlogArticle.vue'
+import PinRow from './components/PinRow.vue'
 
-const posts = ref([
-  { id: 1, title: 'Blog #1', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-  {
-    id: 2,
-    title: 'Blog #2',
-    content: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  },
-  {
-    id: 3,
-    title: 'Blog #3',
-    content:
-      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-  },
-  {
-    id: 4,
-    title: 'Blog #4',
-    content:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-  },
-  {
-    id: 5,
-    title: 'Blog #5',
-    content:
-      'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-  },
+const pinRow = ref([
+  { id: 1, row: [true, false, false, false] },
+  { id: 2, row: [false, false, false, false] },
+  { id: 3, row: [false, false, false, false] },
+  { id: 4, row: [false, false, false, false] },
+  { id: 5, row: [false, false, false, false] },
 ])
 </script>
 
 <template>
-  <header>
-    <!-- <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" /> -->
-
-    <div class="wrapper">
-      <!-- <HelloWorld msg="You did it!" /> -->
-    </div>
-  </header>
-
   <main>
     <TheCounter title="Counter Component" />
-    <BlogArticle v-for="post in posts" :key="post.id" :title="post.title" :content="post.content" />
-    <!-- <TheWelcome /> -->
+    <PinRow v-for="row in pinRow" :key="row.id" :row="row" />
   </main>
 </template>
 
