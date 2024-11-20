@@ -1,22 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { reactive } from 'vue'
 
 import TheCounter from './components/TheCounter.vue'
 import PinRow from './components/PinRow.vue'
 
-const pinRow = ref([
-  { id: 1, row: [true, false, false, false] },
-  { id: 2, row: [false, false, false, false] },
-  { id: 3, row: [false, false, false, false] },
-  { id: 4, row: [false, false, false, false] },
-  { id: 5, row: [false, false, false, false] },
+const pinRow = reactive([
+  ['true', 'false', 'false', 'false'],
+  ['false', 'false', 'false', 'false'],
+  ['false', 'false', 'false', 'false'],
+  ['false', 'false', 'false', 'false'],
+  ['false', 'false', 'false', 'false'],
 ])
 </script>
 
 <template>
   <main>
-    <TheCounter title="Counter Component" />
-    <PinRow v-for="row in pinRow" :key="row.id" :row="row" />
+    <PinRow :row="pinRow" />
   </main>
 </template>
 

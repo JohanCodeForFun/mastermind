@@ -1,11 +1,22 @@
 <script setup lang="ts">
-defineProps(['row'])
+defineProps<{
+  row: string[][]
+}>()
 </script>
 
 <template>
-  <div>
-    <div v-for="(pin, index) in row" :key="index">
-      <span v-for="pinn in pin">--{{ pinn ? 'true' : 'false' }}--</span>
-    </div>
-  </div>
+  <table>
+    <tbody>
+      <tr v-for="(subArray, rowIndex) in row" :key="rowIndex">
+        <td v-for="(pin, colIndex) in subArray">{{ pin }}</td>
+      </tr>
+    </tbody>
+  </table>
 </template>
+
+<style scoped>
+span {
+  padding: 0.5rem 0.3rem;
+  border: 1px solid red;
+}
+</style>
