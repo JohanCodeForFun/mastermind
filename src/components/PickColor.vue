@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineEmits } from 'vue'
 
-defineProps<{
+const props = defineProps<{
   currentColor: string
 }>()
 
@@ -14,9 +14,24 @@ const updateColor = (event: MouseEvent) => {
 </script>
 
 <template>
-  <button value="red" @click="updateColor">red</button>
-  <button value="green" @click="updateColor">green</button>
-  <button value="blue" @click="updateColor">blue</button>
+  <button value="red" @click="updateColor" style="background-color: red">red</button>
+  <button value="green" @click="updateColor" style="background-color: green">green</button>
+  <button value="blue" @click="updateColor" style="background-color: blue">blue</button>
+  <button value="yellow" @click="updateColor" style="background-color: yellow">yellow</button>
+  <button value="orange" @click="updateColor" style="background-color: orange">orange</button>
+  <button value="purple" @click="updateColor" style="background-color: purple">purple</button>
 </template>
 
-<style scoped></style>
+<style scoped>
+button {
+  color: white;
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+}
+button[value='yellow'],
+button[value='orange'] {
+  color: black; /* Better contrast for yellow and orange buttons */
+}
+</style>
