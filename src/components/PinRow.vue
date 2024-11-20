@@ -14,6 +14,7 @@ const setContent = (rowIndex: number, colIndex: number) => {
   <table>
     <tbody>
       <tr v-for="(subArray, rowIndex) in row" :key="rowIndex">
+        <td class="score-pin"></td>
         <td
           v-for="(pin, colIndex) in subArray"
           @click="setContent(rowIndex, colIndex)"
@@ -21,14 +22,32 @@ const setContent = (rowIndex: number, colIndex: number) => {
         >
           {{ pin }}
         </td>
+        <td class="score-pin"></td>
       </tr>
     </tbody>
   </table>
 </template>
 
 <style scoped>
-span {
-  padding: 0.5rem 0.3rem;
-  border: 1px solid red;
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  background-color: sienna;
+  cursor: pointer;
+  color: #fff;
+}
+
+.score-pin {
+  width: 20px;
+  height: 40px;
+  background-color: #eee;
 }
 </style>

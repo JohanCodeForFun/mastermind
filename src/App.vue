@@ -33,16 +33,37 @@ onMounted(() => {
 
 <template>
   <main>
-    <p :style="{ color: currentColor }">Current color: {{ currentColor }}</p>
-    <PickColor :currentColor="currentColor" @updateColor="updateColor" />
-    <PinRow :row="pinRow" @update-row="updateRow" />
-    <MasterMindRow :data="secretPins" />
+    <div class="color-picker">
+      <p :style="{ color: currentColor }">Current color: {{ currentColor }}</p>
+      <PickColor :currentColor="currentColor" @updateColor="updateColor" />
+    </div>
+    <div class="game-board">
+      <PinRow :row="pinRow" @update-row="updateRow" />
+      <MasterMindRow :data="secretPins" />
+    </div>
   </main>
 </template>
 
 <style scoped>
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.color-picker {
+  margin-bottom: 20px;
+}
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 p {
   padding: 10px;
-  color: white;
+  color: white; /* Adjust text color for better readability */
 }
 </style>

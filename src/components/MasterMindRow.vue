@@ -8,15 +8,39 @@ defineProps<{
   <table>
     <tbody>
       <tr>
-        <td :colspan="data.length">Secret mastermind pins:</td>
+        <td :colspan="data.length + 2">Secret mastermind pins:</td>
       </tr>
       <tr>
+        <td class="score-pin"></td>
         <td v-for="pin in data" :style="{ color: pin }">
           {{ pin }}
         </td>
+        <td class="score-pin"></td>
       </tr>
     </tbody>
   </table>
 </template>
 
-<style scoped></style>
+<style scoped>
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  background-color: sienna;
+  cursor: pointer;
+  color: #fff;
+}
+
+.score-pin {
+  width: 20px;
+  height: 40px;
+  background-color: #eee;
+}
+</style>
