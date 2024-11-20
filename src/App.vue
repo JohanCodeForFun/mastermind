@@ -7,11 +7,11 @@ import MasterMindRow from './components/MasterMindRow.vue'
 import { generateSecretPins } from './utils/generateSecretPins'
 
 const pinRow = reactive([
-  ['empty', 'empty', 'empty', 'empty'],
-  ['empty', 'empty', 'empty', 'empty'],
-  ['empty', 'empty', 'empty', 'empty'],
-  ['empty', 'empty', 'empty', 'empty'],
-  ['empty', 'empty', 'empty', 'empty'],
+  ['', '', '', ''],
+  ['', '', '', ''],
+  ['', '', '', ''],
+  ['', '', '', ''],
+  ['', '', '', ''],
 ])
 
 let currentColor = ref<string>('blue')

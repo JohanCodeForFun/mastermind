@@ -18,9 +18,9 @@ const setContent = (rowIndex: number, colIndex: number) => {
         <td
           v-for="(pin, colIndex) in subArray"
           @click="setContent(rowIndex, colIndex)"
-          :style="{ color: pin }"
+          :style="{ backgroundColor: pin }"
         >
-          {{ pin }}
+          <span>{{ pin !== '' ? '•' : '' }}</span>
         </td>
         <td class="score-pin"></td>
       </tr>
@@ -43,6 +43,8 @@ td {
   background-color: sienna;
   cursor: pointer;
   color: #fff;
+  font-size: 24px;
+  padding: 0;
 }
 
 .score-pin {

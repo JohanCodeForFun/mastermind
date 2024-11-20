@@ -12,8 +12,8 @@ defineProps<{
       </tr>
       <tr>
         <td class="score-pin"></td>
-        <td v-for="pin in data" :style="{ color: pin }">
-          {{ pin }}
+        <td v-for="pin in data" :style="{ backgroundColor: pin }">
+          {{ pin !== '' ? '•' : '' }}
         </td>
         <td class="score-pin"></td>
       </tr>
@@ -36,6 +36,7 @@ td {
   background-color: sienna;
   cursor: pointer;
   color: #fff;
+  padding: 0.5rem;
 }
 
 .score-pin {
