@@ -5,6 +5,7 @@ import PinRow from './components/PinRow.vue'
 import PickColor from './components/PickColor.vue'
 import MasterMindRow from './components/MasterMindRow.vue'
 import { generateSecretPins } from './utils/generateSecretPins'
+import EmitTest from './components/EmitTest.vue'
 
 const pinRow = reactive([
   ['empty', 'empty', 'empty', 'empty'],
@@ -15,6 +16,10 @@ const pinRow = reactive([
 ])
 
 let currentColor = ref<string>('blue')
+
+const customEvent = (emit: string) => {
+  console.log('emit:', emit)
+}
 
 const updateColor = (color: string) => {
   currentColor.value = color
@@ -33,6 +38,7 @@ onMounted(() => {
 
 <template>
   <main>
+    <EmitTest @custom-Event="customEvent" />
     <div class="color-picker">
       <p :style="{ color: currentColor }">Current color: {{ currentColor }}</p>
       <PickColor :currentColor="currentColor" @updateColor="updateColor" />
