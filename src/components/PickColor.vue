@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineEmits } from 'vue'
 
-const props = defineProps<{
+defineProps<{
   currentColor: string
 }>()
 
