@@ -2,13 +2,25 @@
 defineProps<{
   row: string[][]
 }>()
+
+const emit = defineEmits(['updateRow'])
+
+const setContent = (rowIndex: number, colIndex: number) => {
+  emit('updateRow', { rowIndex, colIndex })
+}
 </script>
 
 <template>
   <table>
     <tbody>
       <tr v-for="(subArray, rowIndex) in row" :key="rowIndex">
-        <td v-for="(pin, colIndex) in subArray">{{ pin }}</td>
+        <td
+          v-for="(pin, colIndex) in subArray"
+          @click="setContent(rowIndex, colIndex)"
+          :style="{ color: pin }"
+        >
+          {{ pin }}
+        </td>
       </tr>
     </tbody>
   </table>

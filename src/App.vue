@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 
-import TheCounter from './components/TheCounter.vue'
 import PinRow from './components/PinRow.vue'
+import PickColor from './components/PickColor.vue'
 
 const pinRow = reactive([
   ['true', 'false', 'false', 'false'],
@@ -11,11 +11,23 @@ const pinRow = reactive([
   ['false', 'false', 'false', 'false'],
   ['false', 'false', 'false', 'false'],
 ])
+
+let currentColor = ref<string>('white')
+
+const updateColor = (color: string) => {
+  currentColor.value = color
+}
+
+const updateRow = ({ rowIndex, colIndex }: { rowIndex: number; colIndex: number }) => {
+  pinRow[rowIndex][colIndex] = currentColor.value
+}
 </script>
 
 <template>
   <main>
-    <PinRow :row="pinRow" />
+    <p :style="{ color: currentColor }">Current color: {{ currentColor }}</p>
+    <PickColor :currentColor="currentColor" @updateColor="updateColor" />
+    <PinRow :row="pinRow" @update-row="updateRow" />
   </main>
 </template>
 
